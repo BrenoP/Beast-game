@@ -6,21 +6,24 @@ export default function heroes(req, res) {
             name: "Guerreiro",
             icon: "/knight.png",
             damage: 2,
-            type: "melee"
+            type: "Corpo a corpo",
+            selected: false
         },
         {
             id: 2,
             name: "Arqueiro",
             icon: "/archer.png",
             damage: 1,
-            type: "range"
+            type: "A distância",
+            selected: false
         },
         {
             id: 3,
             name: "Mago",
             icon: "/mago.png",
             damage: 1,
-            type: "area"
+            type: "Em área",
+            selected: false
         }
     ];
 

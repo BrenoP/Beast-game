@@ -3,23 +3,24 @@ import React, { useEffect, useState } from "react";
 export const GameContext = React.createContext({});
 
 export function GameProvider(props) {
-  const [game, setGame] = useState({
-    gameTime: 1
-  });
+  const [deckOfHeroes, setDeckOfHeroes] = useState([]);
 
-  useEffect(() => {
-    const gameTimeStorage = localStorage.getItem("gameTime");
-    if (gameTimeStorage) {
-      setGame(JSON.parse(gameTimeStorage));
-    } else {
-      setGame({
-        gameTime: 1
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const gameTimeStorage = localStorage.getItem("gameTime");
+  //   if (gameTimeStorage) {
+  //     setDeckOfHeroes(JSON.parse(gameTimeStorage));
+  //   } else {
+  //     setDeckOfHeroes([]);
+  //   }
+  // }, []);
 
   return (
-    <GameContext.Provider value={{ game, setGame }}>
+    <GameContext.Provider 
+      value={{ 
+        deckOfHeroes, 
+        setDeckOfHeroes 
+      }}
+    >
       {props.children}
     </GameContext.Provider>
   );
