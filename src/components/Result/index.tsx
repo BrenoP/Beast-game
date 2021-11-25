@@ -17,7 +17,7 @@ export default function Result({
     const { deckOfHeroes } : any = useContext(GameContext);
 
     function goToNextCreature() {
-        setNextCreature(!nextCreature)
+        setNextCreature(!nextCreature);
     }
 
     return (

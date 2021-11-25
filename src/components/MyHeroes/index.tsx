@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Image from 'next/image';
 
-import { GameContext, useGame } from '../../providers/game';
+import { GameContext } from '../../providers/game';
 import { Container, Item } from '../ListOfHeroes/style';
 
 export default function MyHeroes() {
@@ -15,7 +15,7 @@ export default function MyHeroes() {
 
     function removeHero(hero, heroToremove) {
         setDeckOfHeroes(deckOfHeroes.filter((hero, index) => index !== heroToremove));
-        setCoins(coins + hero.cost)
+        setCoins(coins + hero.cost);
     }
 
     return (

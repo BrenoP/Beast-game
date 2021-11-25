@@ -1,12 +1,8 @@
-import { useContext, useEffect, useState, useCallback } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from 'axios';
-import Image from 'next/image';
 import Swal from 'sweetalert2';
 
 import { GameContext } from '../providers/game';
-import { 
-    Item
-} from '../components/ListOfHeroes/style';
 import Result from '../components/Result';
 
 export default function Jorney() {
@@ -21,6 +17,7 @@ export default function Jorney() {
 
     useEffect(() => {
         getBeast();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
