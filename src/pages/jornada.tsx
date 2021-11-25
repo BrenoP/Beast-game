@@ -55,7 +55,7 @@ export default function Jorney() {
                 setTimeScreen(3)
             }, 2000);
         } 
-    }, [timeScreen]);
+    }, [timeScreen, beast, deckOfHeroes]);
 
     async function getBeast() {
         const response = await axios.get(`http://localhost:3000/api/beasts`);

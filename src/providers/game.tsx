@@ -4,21 +4,15 @@ export const GameContext = React.createContext({});
 
 export function GameProvider(props) {
   const [deckOfHeroes, setDeckOfHeroes] = useState([]);
-
-  // useEffect(() => {
-  //   const gameTimeStorage = localStorage.getItem("gameTime");
-  //   if (gameTimeStorage) {
-  //     setDeckOfHeroes(JSON.parse(gameTimeStorage));
-  //   } else {
-  //     setDeckOfHeroes([]);
-  //   }
-  // }, []);
+  const [coins, setCoins] = useState(3);
 
   return (
     <GameContext.Provider 
       value={{ 
         deckOfHeroes, 
-        setDeckOfHeroes 
+        setDeckOfHeroes,
+        coins, 
+        setCoins
       }}
     >
       {props.children}

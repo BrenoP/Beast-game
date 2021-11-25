@@ -6,12 +6,12 @@ import { Container, Item } from '../ListOfHeroes/style';
 
 export default function MyHeroes() {
 
-    const { deckOfHeroes } : any = useContext(GameContext);
+    const { deckOfHeroes, coins } : any = useContext(GameContext);
 
     return (
         <Container style={{ flexDirection: "column" }}>
+            <h3>Moedas: {coins}</h3>
             <h1>lista</h1>
-            { console.log(deckOfHeroes) }
             {
                 deckOfHeroes.map((hero) => (
                     <Item key={hero.id}>
