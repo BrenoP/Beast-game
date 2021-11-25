@@ -10,7 +10,7 @@ export default function beasts(req, res) {
       damage: 2
     },
     {
-      id: 1,
+      id: 2,
       name: "Lobão",
       icon: "/creatures/werewolf.png",
       life: 2,
@@ -18,7 +18,7 @@ export default function beasts(req, res) {
       damage: 0
     },
     {
-      id: 1,
+      id: 3,
       name: "Gigante",
       icon: "/creatures/bigfoot.png",
       life: 3,
@@ -27,7 +27,26 @@ export default function beasts(req, res) {
     }
   ];
 
-  const choosedBeast = beasts[Math.floor(Math.random() * 3)];
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]
+      ];
+    }
+  
+    return array;
+  }
 
-  res.status(200).json(choosedBeast);
+  const orderOfBeasts = shuffle(beasts);
+
+  res.status(200).json(orderOfBeasts);
 }

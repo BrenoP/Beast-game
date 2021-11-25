@@ -12,13 +12,24 @@ import Result from '../components/Result';
 export default function Jorney() {
 
     const [timeScreen, setTimeScreen] = useState(0);
+    const [beastIndex, setBeastIndex] = useState(0);
     const [beast, setBeast] = useState(null);
+    const [allbeasts, setAllBeasts] = useState(null);
     const [win, setWin] = useState(null);
     const [nextCreature, setNextCreature] = useState(false);
     const { deckOfHeroes, coins, setCoins } : any = useContext(GameContext);
 
     useEffect(() => {
         getBeast();
+    }, []);
+
+    useEffect(() => {
+        if(allbeasts) {
+            setBeast(allbeasts[beastIndex]);
+            setBeastIndex(beastIndex + 1);
+            setTimeScreen(1);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [nextCreature]);
 
     useEffect(() => {
@@ -34,7 +45,9 @@ export default function Jorney() {
     async function getBeast() {
         const response = await axios.get(`http://localhost:3000/api/beasts`);
         const data = await response.data;
-        setBeast(data);
+        setAllBeasts(data);
+        setBeast(data[beastIndex]);
+        setBeastIndex(beastIndex !== 0 ? 0 : beastIndex + 1);
         setTimeScreen(1);
     }
 
@@ -53,16 +66,18 @@ export default function Jorney() {
     }
 
     function battleResults() {
-        let heroesCanWin = true;
+        let heroesCanWin = false;
         let totalHeroesDamage = 0;
         deckOfHeroes.map(hero => {
             if(beast.type === "Voador") {
-                if(hero.type !== "A distância") {
-                    heroesCanWin = false
+                if(hero.type === "A distância") {
+                    heroesCanWin = true
                 } 
+            } else {
+                heroesCanWin = true
             }
             totalHeroesDamage = totalHeroesDamage + hero.damage;
-        })
+        });
         if(heroesCanWin && totalHeroesDamage > beast.life) {
             setWin(true);
             setCoins(coins + 1);

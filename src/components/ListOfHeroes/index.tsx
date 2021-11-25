@@ -16,7 +16,9 @@ export default function ListOfHeroes({ heroes }) {
         deckOfHeroes, 
         setDeckOfHeroes,
         coins, 
-        setCoins
+        setCoins,
+        gameBegun, 
+        setGameBegun,
     } : any = useGame();
 
     function selectHero(hero) {
@@ -56,7 +58,7 @@ export default function ListOfHeroes({ heroes }) {
                 href="/jornada" 
                 passHref
             >
-                <button>
+                <button onClick={() => setGameBegun(!gameBegun)}>
                     Iniciar jogo
                 </button>
             </Link>
