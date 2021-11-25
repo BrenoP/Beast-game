@@ -7,6 +7,7 @@ export default function heroes(req, res) {
             icon: "/knight.png",
             damage: 2,
             type: "Corpo a corpo",
+            coast: 1,
             selected: false
         },
         {
@@ -15,6 +16,7 @@ export default function heroes(req, res) {
             icon: "/archer.png",
             damage: 1,
             type: "A distância",
+            coast: 1,
             selected: false
         },
         {
@@ -23,6 +25,7 @@ export default function heroes(req, res) {
             icon: "/mago.png",
             damage: 1,
             type: "Em área",
+            coast: 3,
             selected: false
         }
     ];

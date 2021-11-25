@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import Image from 'next/image';
-import { GameContext, useGame } from '../providers/game';
+import Swal from 'sweetalert2';
+
+import { GameContext } from '../providers/game';
 import { 
     Item
 } from '../components/ListOfHeroes/style';
@@ -11,24 +13,28 @@ export default function Jorney() {
     const { deckOfHeroes } : any = useContext(GameContext);
 
     useEffect(() => {
-        if(timeScreen < 3) {
-            if(timeScreen === 1) {
-                setTimeout(() => {
-                    setTimeScreen(2)
-                }, 5000)
-            } else {
-                setTimeout(() => {
-                    setTimeScreen(3)
-                }, 2000)
-            }
+        if(timeScreen === 1) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                showCloseButton: true,
+            }).then(() => {
+                setTimeScreen(2)
+            })
         }
+        if(timeScreen === 2) {
+            setTimeout(() => {
+                setTimeScreen(3)
+            }, 2000)
+        } 
     }, [timeScreen]);
 
     return (
         <>
             <h1>
                 {
-                    timeScreen === 1 ? "criatura" : 
+                    timeScreen === 1 ? null : 
                     timeScreen === 2 ? "lutando..." : 
                     "resultado" 
                 }
