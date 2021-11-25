@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { GameContext } from '../../providers/game';
 import { 
@@ -21,8 +22,25 @@ export default function Result({
 
     return (
         <>
-            {win !== null && <h1>{win ? "GANHOO!" : "perdeu :c"}</h1>}
-            <button onClick={() => goToNextCreature()}>Próxima criatura</button>
+            {
+                win !== null && (
+                    <>
+                        {
+                            win ? (
+                                <>
+                                    <h1>GANHOO</h1>
+                                    <button onClick={() => goToNextCreature()}>Próxima criatura</button>
+                                </>
+                            ) : (
+                                <>
+                                    <h1>perdeu :c</h1>
+                                    <Link href="/herois" passHref><button>Voltar para a loja</button></Link>
+                                </>
+                            )
+                        }
+                    </>
+                )
+            }
             <div style={{ display: 'flex' }}>
                 <div>
                     {
