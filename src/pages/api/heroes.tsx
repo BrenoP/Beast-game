@@ -4,7 +4,8 @@ export default function heroes(req, res) {
         {
             id: 1,
             name: "Guerreiro",
-            icon: "/knight.png",
+            iconPNG: "/heroes/knight.png",
+            iconSVG: "/heroes/knight.svg",
             damage: 2,
             type: "Corpo a corpo",
             cost: 1,
@@ -13,7 +14,8 @@ export default function heroes(req, res) {
         {
             id: 2,
             name: "Arqueiro",
-            icon: "/archer.png",
+            iconPNG: "/heroes/archer.png",
+            iconSVG: "/heroes/archer.svg",
             damage: 1,
             type: "A distância",
             cost: 1,
@@ -22,9 +24,10 @@ export default function heroes(req, res) {
         {
             id: 3,
             name: "Mago",
-            icon: "/mago.png",
+            iconPNG: "/heroes/mago.png",
+            iconSVG: "/heroes/mago.svg",
             damage: 2,
-            type: "A distância",
+            type: "Dano mágico",
             cost: 3,
             selected: false
         }

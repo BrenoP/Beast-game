@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Swal from 'sweetalert2';
 
 import { useGame } from '../../providers/game';
@@ -16,9 +15,7 @@ export default function ListOfHeroes({ heroes }) {
         deckOfHeroes, 
         setDeckOfHeroes,
         coins, 
-        setCoins,
-        gameBegun, 
-        setGameBegun,
+        setCoins
     } : any = useGame();
 
     function selectHero(hero) {
@@ -46,22 +43,14 @@ export default function ListOfHeroes({ heroes }) {
                         isSelected={hero.selected}
                         onClick={() => selectHero(hero)}
                     >    
-                        <Image src={hero.icon} alt="" width="100" height="100" />
-                        <p>{hero.name}</p>
+                        <Image src={hero.iconPNG} alt="" width="100" height="100" />
+                        <h4>{hero.name}</h4>
                         <p>Dano: {hero.damage}</p>
                         <p>Tipo: {hero.type}</p>
                         <p>Custo: {hero.cost}</p>
                     </Item>
                 ))
             }
-            <Link 
-                href="/jornada" 
-                passHref
-            >
-                <button onClick={() => setGameBegun(!gameBegun)}>
-                    Iniciar jogo
-                </button>
-            </Link>
         </Container>
     )
 }

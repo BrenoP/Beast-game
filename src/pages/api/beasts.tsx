@@ -24,6 +24,14 @@ export default function beasts(req, res) {
       life: 3,
       type: "Fera",
       damage: 1
+    },
+    {
+      id: 4,
+      name: "Golem",
+      icon: "/creatures/golem.png",
+      life: 5,
+      type: "Criatura mágica",
+      damage: 1
     }
   ];
 

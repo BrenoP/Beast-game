@@ -70,6 +70,10 @@ export default function Jorney() {
                 if(hero.type === "A distância") {
                     heroesCanWin = true
                 } 
+            } else if(beast.type === "Criatura mágica") {
+                if(hero.type === "Dano mágico") {
+                    heroesCanWin = true
+                } 
             } else {
                 heroesCanWin = true
             }

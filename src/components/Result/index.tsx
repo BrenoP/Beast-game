@@ -46,7 +46,7 @@ export default function Result({
                     {
                         deckOfHeroes.map(hero => (
                             <Item key={hero.id}>
-                                <Image src={hero.icon} alt="" width="100" height="100" />
+                                <Image src={hero.iconPNG} alt="" width="100" height="100" />
                                 <p>{hero.name}</p>
                                 <p>Dano: {hero.damage}</p>
                                 <p>Tipo: {hero.type}</p>
