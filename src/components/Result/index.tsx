@@ -14,6 +14,8 @@ export default function Result({
     beast,
     nextCreature,
     setNextCreature,
+    lifes,
+    setLifes,
     condition
 }) {
 
@@ -36,7 +38,7 @@ export default function Result({
                                 </>
                             ) : (
                                 <>
-                                    <Button>
+                                    <Button onClick={() => setLifes(lifes - 1)}>
                                         <Link href="/herois" passHref>
                                             Voltar para a loja
                                         </Link>

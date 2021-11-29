@@ -5,7 +5,8 @@ export const GameContext = React.createContext({});
 export function GameProvider(props) {
   const [gameBegun, setGameBegun] = useState(false);
   const [deckOfHeroes, setDeckOfHeroes] = useState([]);
-  const [coins, setCoins] = useState(3);
+  const [coins, setCoins] = useState(10);
+  const [lifes, setLifes] = useState(3);
 
   return (
     <GameContext.Provider 
@@ -15,7 +16,9 @@ export function GameProvider(props) {
         deckOfHeroes, 
         setDeckOfHeroes,
         coins, 
-        setCoins
+        setCoins,
+        lifes, 
+        setLifes
       }}
     >
       {props.children}

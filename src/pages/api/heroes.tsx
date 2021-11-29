@@ -28,6 +28,36 @@ export default function heroes(req, res) {
             iconSVG: "/heroes/mago.svg",
             damage: 2,
             type: "Dano mágico",
+            cost: 2,
+            selected: false
+        },
+        {
+            id: 4,
+            name: "Bárbaro",
+            iconPNG: "/heroes/barbarian.png",
+            iconSVG: "/heroes/barbarian.svg",
+            damage: 5,
+            type: "Corpo a corpo",
+            cost: 2,
+            selected: false
+        },
+        {
+            id: 5,
+            name: "Caçador",
+            iconPNG: "/heroes/hunter.png",
+            iconSVG: "/heroes/hunter.svg",
+            damage: 3,
+            type: "A distância",
+            cost: 2,
+            selected: false
+        },
+        {
+            id: 6,
+            name: "Bruxo",
+            iconPNG: "/heroes/witcher.png",
+            iconSVG: "/heroes/witcher.svg",
+            damage: 3,
+            type: "Dano mágico",
             cost: 3,
             selected: false
         }

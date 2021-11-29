@@ -13,7 +13,8 @@ export default function MyHeroes() {
         deckOfHeroes, 
         setDeckOfHeroes, 
         coins,
-        setCoins 
+        setCoins, 
+        lifes
     } : any = useContext(GameContext);
 
     function removeHero(hero, heroToremove) {
@@ -24,6 +25,7 @@ export default function MyHeroes() {
     return (
         <Container style={{ flexDirection: "column" }}>
             <h3>Moedas: {coins}</h3>
+            <h3>Vidas: {lifes}</h3>
             <h1>lista</h1>
             <HeroesList removeHero={removeHero} />
         </Container>

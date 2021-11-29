@@ -43,7 +43,9 @@ export default function ListOfHeroes({ heroes }) {
                         isSelected={hero.selected}
                         onClick={() => selectHero(hero)}
                     >    
-                        <Image src={hero.iconPNG} alt="" width="100" height="100" />
+                        <div>
+                            <Image src={hero.iconPNG} alt="" width="100" height="100" />
+                        </div>
                         <h4>{hero.name}</h4>
                         <p>Dano: {hero.damage}</p>
                         <p>Tipo: {hero.type}</p>

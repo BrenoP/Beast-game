@@ -14,7 +14,13 @@ export default function Jorney() {
     const [win, setWin] = useState(null);
     const [nextCreature, setNextCreature] = useState(false);
     const [condition, setCondition] = useState("");
-    const { deckOfHeroes, coins, setCoins } : any = useContext(GameContext);
+    const { 
+        deckOfHeroes, 
+        coins, 
+        setCoins,
+        lifes,
+        setLifes 
+    } : any = useContext(GameContext);
 
     useEffect(() => {
         getBeast();
@@ -105,6 +111,8 @@ export default function Jorney() {
                         beast={beast}
                         nextCreature={nextCreature}
                         setNextCreature={setNextCreature}
+                        lifes={lifes}
+                        setLifes={setLifes}
                         condition={condition}
                     />
                 }

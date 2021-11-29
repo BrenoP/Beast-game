@@ -5,15 +5,15 @@ export default function beasts(req, res) {
       id: 1,
       name: "Dragão",
       icon: "/creatures/final-boss.png",
-      life: 4,
+      life: 15,
       type: "Voador",
-      damage: 2
+      damage: 1
     },
     {
       id: 2,
       name: "Lobão",
       icon: "/creatures/werewolf.png",
-      life: 2,
+      life: 4,
       type: "Fera",
       damage: 0
     },
@@ -21,17 +21,57 @@ export default function beasts(req, res) {
       id: 3,
       name: "Gigante",
       icon: "/creatures/bigfoot.png",
-      life: 3,
+      life: 6,
       type: "Fera",
-      damage: 1
+      damage: 0
     },
     {
       id: 4,
       name: "Golem",
       icon: "/creatures/golem.png",
-      life: 5,
+      life: 11,
+      type: "Criatura mágica",
+      damage: 0
+    },
+    {
+      id: 5,
+      name: "Demônio",
+      icon: "/creatures/demon.png",
+      life: 7,
       type: "Criatura mágica",
       damage: 1
+    },
+    {
+      id: 6,
+      name: "Árvore mágica",
+      icon: "/creatures/magic-tree.png",
+      life: 9,
+      type: "Criatura mágica",
+      damage: 0
+    },
+    {
+      id: 7,
+      name: "Yeti",
+      icon: "/creatures/yeti.png",
+      life: 12,
+      type: "Fera",
+      damage: 0
+    },
+    {
+      id: 8,
+      name: "Minotauro",
+      icon: "/creatures/minotauro.png",
+      life: 10,
+      type: "Fera",
+      damage: 0
+    },
+    {
+      id: 9,
+      name: "Hydra",
+      icon: "/creatures/hydra.png",
+      life: 11,
+      type: "Fera",
+      damage: 0
     }
   ];
 
