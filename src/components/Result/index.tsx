@@ -1,20 +1,21 @@
-import { useContext } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { GameContext } from '../../providers/game';
 import { 
-    Item
-} from '../ListOfHeroes/style';
+    ContainerResult,
+    List,
+    Beast
+} from './style';
+import HeroesList from "../MyHeroes/HeroesList";
+import Button from '../Button';
 
 export default function Result({ 
     win, 
     beast,
     nextCreature,
-    setNextCreature
+    setNextCreature,
+    condition
 }) {
-
-    const { deckOfHeroes } : any = useContext(GameContext);
 
     function goToNextCreature() {
         setNextCreature(!nextCreature);
@@ -28,33 +29,31 @@ export default function Result({
                         {
                             win ? (
                                 <>
+                                    <Button onClick={() => goToNextCreature()}>
+                                        Próxima criatura
+                                    </Button>
                                     <h1>GANHOO</h1>
-                                    <button onClick={() => goToNextCreature()}>Próxima criatura</button>
                                 </>
                             ) : (
                                 <>
+                                    <Button>
+                                        <Link href="/herois" passHref>
+                                            Voltar para a loja
+                                        </Link>
+                                    </Button>
                                     <h1>perdeu :c</h1>
-                                    <Link href="/herois" passHref><button>Voltar para a loja</button></Link>
+                                    <p>{condition}</p>
                                 </>
                             )
                         }
                     </>
                 )
             }
-            <div style={{ display: 'flex' }}>
-                <div>
-                    {
-                        deckOfHeroes.map(hero => (
-                            <Item key={hero.id}>
-                                <Image src={hero.iconPNG} alt="" width="100" height="100" />
-                                <p>{hero.name}</p>
-                                <p>Dano: {hero.damage}</p>
-                                <p>Tipo: {hero.type}</p>
-                            </Item>
-                        ))
-                    }
-                </div>
-                <div>
+            <ContainerResult>
+                <List>
+                    <HeroesList />
+                </List>
+                <Beast>
                     {
                         beast && (
                             <>
@@ -65,8 +64,8 @@ export default function Result({
                             </>
                         )
                     }
-                </div>
-            </div>
+                </Beast>
+            </ContainerResult>
         </>
     );
 }

@@ -13,6 +13,7 @@ export default function Jorney() {
     const [allbeasts, setAllBeasts] = useState(null);
     const [win, setWin] = useState(null);
     const [nextCreature, setNextCreature] = useState(false);
+    const [condition, setCondition] = useState("");
     const { deckOfHeroes, coins, setCoins } : any = useContext(GameContext);
 
     useEffect(() => {
@@ -84,6 +85,9 @@ export default function Jorney() {
             setCoins(coins + 1);
         } else {
             setWin(false);
+            heroesCanWin ? 
+            setCondition("Você não tem dano suficiente para matar a criatura") :
+            setCondition("Você não tem todas as condições suficientes para matar a criatura")
         }
         setTimeout(() => {
             setTimeScreen(3);
@@ -101,6 +105,7 @@ export default function Jorney() {
                         beast={beast}
                         nextCreature={nextCreature}
                         setNextCreature={setNextCreature}
+                        condition={condition}
                     />
                 }
             </h1>
